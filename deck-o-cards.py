@@ -1,5 +1,6 @@
 from pprint import pprint
 
+# TODO: add shuffle deck functionality
 shuffledCards = []
 
 class Card():
@@ -8,7 +9,7 @@ class Card():
         self.value = value
 
     def __repr__(self):
-        return "suit: {}, value: {}\n".format(self.suit, self.value)
+        return "suit: {}, value: {}".format(self.suit, self.value)
 
 class Deck():
     values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace']
@@ -16,12 +17,8 @@ class Deck():
 
     def __init__(self):
         self.cards = []
-        print("creating deck")
         for i in range(len(Deck.suits)):
-            print("appending suit")
             for j in range(len(Deck.values)):
-                print("appending value", Deck.values[j])
-                print(self.cards)
                 card = Card(Deck.suits[i], Deck.values[j])
                 self.cards.append(card)
 
