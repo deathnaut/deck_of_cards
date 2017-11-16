@@ -10,14 +10,18 @@ class Card():
 class Deck():
     def __init__(self):
         self.cards = []
-        value = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace']
-        suit = ['hearts', 'diamonds', 'clubs', 'spades']
-        for i in range(len(suit)):
+
+    def createDeck(self):
+        print("creating deck")
+        values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace']
+        suits = ['hearts', 'diamonds', 'clubs', 'spades']
+        for i in suits:
             print("appending suit")
-            for j in range(len(value)):
+            for j in values:
                 print("appending value")
-                print(str(Card(i, j)))
-                self.cards.append(Card(i, j))
+                self.cards.append(Card(suits, values))
+        return self
 
 test = Deck()
+deck = test.createDeck()
 pprint(vars(test))
