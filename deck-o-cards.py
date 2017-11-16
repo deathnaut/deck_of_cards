@@ -7,21 +7,24 @@ class Card():
         self.suit = suit
         self.value = value
 
+    def __repr__(self):
+        return "suit: {}, value: {}\n".format(self.suit, self.value)
+
 class Deck():
+    values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace']
+    suits = ['hearts', 'diamonds', 'clubs', 'spades']
+
     def __init__(self):
         self.cards = []
-
-    def createDeck(self):
         print("creating deck")
-        values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace']
-        suits = ['hearts', 'diamonds', 'clubs', 'spades']
-        for i in suits:
+        for i in range(len(Deck.suits)):
             print("appending suit")
-            for j in values:
-                print("appending value")
-                self.cards.append(Card(suits, values))
-        return self
+            for j in range(len(Deck.values)):
+                print("appending value", Deck.values[j])
+                print(self.cards)
+                card = Card(Deck.suits[i], Deck.values[j])
+                self.cards.append(card)
+
 
 test = Deck()
-deck = test.createDeck()
 pprint(vars(test))
